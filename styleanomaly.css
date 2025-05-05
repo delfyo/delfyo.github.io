@@ -1,0 +1,245 @@
+input, button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+  }
+
+  .input-name{
+    text-align: center;
+  }
+
+  h1{
+    font-size: 30px;
+  }
+
+
+
+  
+  .anomaly-container {
+    display: inline-block;
+    margin-top: 20px;
+    border-left: 10px solid;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .basic {
+    border-color: #4CAF50;
+  }
+
+  .rare {
+    border-color: #2196F3;
+  }
+
+  .epic {
+    border-color: #9C27B0;
+  }
+
+  .legend {
+    border-color: #FFD700;
+  }
+
+  img {
+    max-width: 250px;
+    border: 2px solid #000;
+    display: block;
+    margin: 0 auto 10px auto;
+  }
+
+  .description {
+    margin-top: 5px;
+    font-style: italic;
+  }
+
+  .name {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .anomaly-card {
+width: 250px;
+height: 350px;
+margin: 20px auto;
+border-radius: 20px;
+box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+padding: 15px;
+color: #fff;
+font-family: 'Segoe UI', sans-serif;
+position: relative;
+overflow: hidden;
+text-align: center;
+background-size: cover;
+background-position: center;
+}
+
+.anomaly-card.basic {
+background: linear-gradient(135deg, #3aaf3c, #76d275);
+}
+
+.anomaly-card.rare {
+background: linear-gradient(135deg, #2979ff, #6ec6ff);
+}
+
+.anomaly-card.epic {
+background: linear-gradient(135deg, #8e24aa, #ce93d8);
+}
+
+.anomaly-card.legend {
+background: linear-gradient(135deg, #ffb300, #fff176);
+color: #000;
+}
+
+@keyframes rainbowBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.anomaly-card.secret {
+  height: 400px;
+  background: linear-gradient(270deg, 
+    #ff0000, #ff9900, #ffff00, 
+    #33cc33, #3399ff, #9900cc, #ff0066);
+  background-size: 1400% 1400%;
+  animation: rainbowBG 6s ease infinite;
+
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7),
+              0 0 20px rgba(255, 255, 255, 0.3),
+              inset 0 0 12px rgba(255, 255, 255, 0.4);
+  position: relative;
+}
+
+.anomaly-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.anomaly-card.placeholder {
+  background: linear-gradient(135deg, #bbb, #ddd);
+  color: #444;
+  border: 2px dashed #999;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  aspect-ratio: 3/4;
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.anomaly-card.placeholder img {
+  width: 80%;
+  max-height: 60%;
+  object-fit: contain;
+  opacity: 0.6;
+}
+
+
+/* Efek kilau foil untuk semua kartu */
+.anomaly-card::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%; height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.2) 0%,
+    rgba(255,255,255,0.6) 50%,
+    rgba(255,255,255,0.2) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shine 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+
+
+.anomaly-card img {
+width: 90%;
+border-radius: 10px;
+margin: 10px 0;
+border: 2px solid rgba(255,255,255,0.7);
+}
+
+.anomaly-name {
+font-size:14px;
+width: 80%;
+font-weight: bold;
+text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.anomaly-description {
+font-size: 14px;
+margin-top: 10px;
+font-style: italic;
+}
+
+/* MOBILE DEVICE */
+@media only screen and (max-width: 480px){
+  
+  input, button {
+    padding: 8px;
+    margin: 5px;
+    font-size: 12px;
+  }
+
+  h1{
+    font-size: 20px;
+  }
+
+  .anomaly-card.placeholder {
+    width: 200px;
+  }
+
+  .name {
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  img {
+    max-width: 200px;
+    border: 2px solid #000;
+    display: block;
+    margin: 0 auto 10px auto;
+  }
+
+  .description {
+    margin-top: 5px;
+    font-style: italic;
+  }
+
+  .anomaly-name {
+    font-size: 14px;
+    width: 80%;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+  .anomaly-card {
+  width: 200px;
+  height: 320px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  padding: 15px;
+  color: #fff;
+  font-size: 12px;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+}
+.anomaly-card.secret {
+  height: 400px;
+  
+}
+}

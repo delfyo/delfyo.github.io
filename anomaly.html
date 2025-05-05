@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styleanomaly.css">
+  <link rel="stylesheet" href="stylecounter.css">
+  <link rel="stylesheet" href="stylecarousel.css">
+  <title>Anomaly Randomizer</title>
+ 
+</head>
+
+
+
+
+<body>
+
+  <header>
+    <ul>
+      <li><img src="images/ANOMALY.png" alt="logo"></li>
+      <li><a href="">Home</a></li>
+      <li><a href="">About</a></li>
+  
+      <li class="dropdown"> <!-- Letakkan dropdown di dalam <li> -->
+        <label for="toggle-drop" class="dropdown-toggle">🎲 Drop Rate</label>
+        <input type="checkbox" id="toggle-drop">
+        
+        <div class="dropdown-menu">
+          <a href="#">🟢 Basic: 70%</a>
+          <a href="#">🔵 Rare: 20%</a>
+          <a href="#">🟣 Epic: 8%</a>
+          <a href="#">🟡 Legend: 1.7%</a>
+          <a href="#">🌈 Secret: 0.3%</a>
+        </div>
+      </li>
+    </ul>
+  </header>
+  
+
+    
+
+<div class="input-name">
+  <h1>find your anomaly!</h1>
+  <input type="text" id="username" placeholder="enter your name">
+  <button onclick="getAnomaly()">Start</button>
+  <div id="result"></div>
+</div>
+  
+  
+
+  <div id="anomaly-result">
+    <div class="anomaly-card placeholder">
+      <h2>unknown anomaly</h2>
+      <h3>???</h3>
+      <p>Masukkan nama untuk membuka anomaly Anda.</p>
+    </div>
+  </div>
+
+
+  <script>
+    const anomalies = {
+      basic: [
+        { file: 'basic1.png', name: 'ireng reng rung ring rang rong wir', description: 'Deskripsi singkat.' },
+        { file: 'basic2.png', name: 'pig pig pig epiggg', description: 'Deskripsi singkat.' },
+        { file: 'basic3.png', name: 'frigo cammello buffofardello', description: 'Deskripsi singkat.' },
+        { file: 'basic4.png', name: 'shimpanzinni bananinni', description: 'Deskripsi singkat.' },
+        { file: 'basic5.png', name: 'brrr brrr patapimmm', description: 'Deskripsi singkat.' },
+        { file: 'basic6.png', name: 'pep pep pep rivev dulu bang', description: 'Deskripsi singkat.' },
+        { file: 'basic7.png', name: 'bang beli bawang', description: 'Deskripsi singkat.' },
+        { file: 'basic8.png', name: 'kel kel mokel momo kelkel', description: 'Deskripsi singkat.' },
+        { file: 'basic9.png', name: 'yang mau masuk surga like dan subscribe', description: 'Deskripsi singkat.' },
+        { file: 'basic10.png', name: 'tak nak sosis walid layu', description: 'Deskripsi singkat.' },
+        { file: 'basic11.png', name: 'gin gin gin login gin gin login', description: 'Deskripsi singkat.' },
+        { file: 'basic12.png', name: 'ampalibabel ambalipabel', description: 'Deskripsi singkat.' },
+        { file: 'basic13.png', name: 'bot bot bot bot bot bot bot', description: 'Deskripsi singkat.' },
+        { file: 'basic14.png', name: 'lat silat yok silat PSHT', description: 'Deskripsi singkat.' },
+        { file: 'basic15.png', name: 'siti siti velocity', description: 'Deskripsi singkat.' },
+        { file: 'basic16.png', name: 'wi wok de tok', description: 'Deskripsi singkat.' },
+        { file: 'basic17.png', name: 'tam tam tam mukalu hitam', description: 'Deskripsi singkat.' },
+        { file: 'basic18.png', name: 'lag lag ngelag', description: 'Deskripsi singkat.' },
+        { file: 'basic19.png', name: 'poooottt hospooot prooot hospoot', description: 'Deskripsi singkat.' },
+        { file: 'basic20.png', name: 'bur baloni luliloli', description: 'Deskripsi singkat.' }
+      ],
+      rare: [
+        { file: 'rare1.png', name: 'la vaca saturno saturnita', description: 'Deskripsi singkat.' },
+        { file: 'rare2.png', name: 'tripi tropi tropa tripa', description: 'Deskripsi singkat.' },
+        { file: 'rare3.png', name: 'toni croocks', description: 'Deskripsi singkat.' },
+        { file: 'rare4.png', name: 'probowono subiantono', description: 'Deskripsi singkat.' },
+        { file: 'rare5.png', name: 'ballerinna cappucinna', description: 'Deskripsi singkat.' },
+        { file: 'rare6.png', name: 'oplosana oplosini', description: 'Deskripsi singkat.' },
+        { file: 'rare7.png', name: 'hp teros fafifufufufafa', description: 'Deskripsi singkat.' },
+        { file: 'rare8.png', name: 'capucino assasinno', description: 'Deskripsi singkat.' },
+        { file: 'rare9.png', name: 'brr brr es teh patipum', description: 'Deskripsi singkat.' },
+        { file: 'rare10.png', name: 'tob tobi top top tobi tob tob tobi tob', description: 'Deskripsi singkat.' }
+      ],
+      epic: [
+        { file: 'epic1.png', name: 'bombombini gusini', description: 'Deskripsi singkat.' },
+        { file: 'epic2.png', name: 'liri lilarila', description: 'Deskripsi singkat.' },
+        { file: 'epic3.png', name: 'garam mararam raramanmararaman dan madu dung dung dung tak tuntung prakuntung', description: 'Deskripsi singkat.' },
+        { file: 'epic4.png', name: 'boneca ambalabu', description: 'Deskripsi singkat.' },
+        { file: 'epic5.png', name: 'bobrinni kokokosinni', description: 'Deskripsi singkat.' }
+      ],
+      legend: [
+        { file: 'legend1.png', name: 'tung tung tung tung tung sahur', description: 'Deskripsi singkat.' },
+        { file: 'legend2.png', name: 'tralalelo tralala', description: 'Deskripsi singkat.' },
+        { file: 'legend3.png', name: 'bombardilo crocodilo', description: 'Deskripsi singkat.' }
+      ],
+      secret: [
+        {file: 'secret.png', name: 'tripa tropa tralala lirilira tung tung sahur boneka tung tung tralalelo tripi tropa crocodina', description: 'secret anomaly.'}
+      ]
+      
+    };
+  </script>
+  
+  <script>
+    const userResults = JSON.parse(localStorage.getItem('userResults')) || {};
+
+    function getAnomaly() {
+  const nameInput = document.getElementById('username').value.trim().toLowerCase();
+  if (!nameInput) {
+    alert("Masukkan nama terlebih dahulu!");
+    return;
+  }
+
+  // 🔽 Sembunyikan kartu tanda tanya
+  const placeholder = document.querySelector('.anomaly-card.placeholder');
+  if (placeholder) placeholder.style.display = 'none';
+
+  if (userResults[nameInput]) {
+    const { rarity, anomaly } = userResults[nameInput];
+    showAnomaly(rarity, anomaly);
+    return;
+  }
+
+  const rarity = getRarity();
+  const list = anomalies[rarity];
+  const anomaly = list[Math.floor(Math.random() * list.length)];
+
+  userResults[nameInput] = { rarity, anomaly };
+  localStorage.setItem('userResults', JSON.stringify(userResults));
+  showAnomaly(rarity, anomaly);
+}
+
+    function getRarity() {
+      const rand = Math.random() * 100;
+      if (rand < 0.3) return 'secret';
+      if (rand < 2) return 'legend';
+      if (rand < 8) return 'epic';
+      if (rand < 20) return 'rare';
+      return 'basic';
+    }
+
+    function showAnomaly(rarity, anomaly) {
+  const resultDiv = document.getElementById('result');
+  resultDiv.innerHTML = `
+    <div class="anomaly-card ${rarity}">
+      <div class="anomaly-name">${anomaly.name}</div>
+      <img src="images/${anomaly.file}" alt="${anomaly.name}">
+      <div class="anomaly-description">${anomaly.description}</div>
+      <div style="position: absolute; top: 10px; right: 10px; font-weight: bold;">
+        ${rarity.toUpperCase()}
+      </div>
+    </div>
+  `;
+  }
+
+  </script>
+
+  <div class="carousel">
+    <div class="wrap">
+      <img src="images/basic4.png" >
+      <img src="images/rare1.png">
+      <img src="images/epic4.png" >
+      <img src="images/legend2.png" >
+      <img src="images/epic2.png">
+      <img src="images/epic1.png">
+      <img src="images/rare8.png" >
+      <img src="images/rare5.png" >
+      <img src="images/basic4.png">
+      <img src="images/rare1.png">
+      <img src="images/epic4.png">
+      <img src="images/legend2.png">
+      <img src="images/epic2.png">
+      <img src="images/epic1.png" >
+      <img src="images/rare8.png">
+      <img src="images/rare5.png">
+    </div>
+  </div>
+  
+  <div class="counter-wrapper">
+    <div class="counter-container">
+      <div class="counter" data-target="39">0</div>
+      <p class="counter-bot">total anomaly</p>
+    </div>
+    <div class="counter-container">
+      <div class="counter" data-target="20">0</div>
+      <p class="counter-bot">basic</p>
+    </div>
+    <div class="counter-container">
+      <div class="counter" data-target="10">0</div>
+      <p class="counter-bot">rare</p>
+    </div>
+    <div class="counter-container">
+      <div class="counter" data-target="5">0</div>
+      <p class="counter-bot">epic</p>
+    </div>
+    <div class="counter-container">
+      <div class="counter" data-target="3">0</div>
+      <p class="counter-bot">legend</p>
+    </div>
+    <div class="counter-container">
+      <div class="counter" data-target="1">0</div>
+      <p class="counter-bot">secret</p>
+    </div>
+  </div>
+  
+  
+  <footer>
+    <ul>
+      <a href="https://www.instagram.com/qwertytyss?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+        <li><img src="images/ins.png" alt=""></li>
+      </a>
+        <li><a href="">Home</a></li>
+    </ul>
+  </footer>
+
+
+</body>
+
+<script src="counter.js"></script>
+</html>

@@ -1,0 +1,52 @@
+.carousel {
+    overflow: hidden;
+}
+
+.wrap {
+    display: flex;
+    width: max-content;
+    animation: slide 15s linear infinite;
+}
+
+.wrap img {
+    width: 200px;
+    height: 200px;
+    border-radius: 0px;
+    border: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    background-color: #444;
+    object-fit: cover;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-1680px); /* 4 * 200px */
+    }
+}
+
+/* === RESPONSIVE FOR MOBILE DEVICE === */
+@media only screen and (max-width: 480px) {
+    .wrap img{
+        width: 100px;
+        height: 100px;
+        margin-top: 100px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        padding-left: 5px;
+    }
+
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-840px); /* 4 * 200px */
+    }
+}
+}
